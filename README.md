@@ -1,5 +1,5 @@
 # CS115-Final-Semester-Project
-Logistic Regression 
+Tree, Forest, Bagging, Boosting 
 
 ## Collaboration Guidelines
 
