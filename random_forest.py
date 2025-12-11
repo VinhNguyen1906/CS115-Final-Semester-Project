@@ -42,7 +42,6 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_
 
 # Instantiate classification models with default parameters
 models = {
-    'Decision Tree': DecisionTreeClassifier(),
     'Random Forest': RandomForestClassifier(),
 }
 #----------------
