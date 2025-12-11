@@ -16,7 +16,7 @@ from sklearn.metrics import (
 # 1. Tải và chuẩn bị dữ liệu
 df = pd.read_csv('Student_performance_data _.csv')
 
-X = df.drop('GradeClass', axis=1)
+X = df.drop(['GradeClass', 'StudentID', 'GPA'], axis=1)
 y = df['GradeClass']
 
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
@@ -56,4 +56,5 @@ sns.heatmap(cm, annot=True, fmt='d', cmap='Blues', cbar=False)
 plt.title('Confusion Matrix\n(Hàng: Thực tế - Cột: Dự đoán)')
 plt.ylabel('Thực tế (Actual GradeClass)')
 plt.xlabel('Dự đoán (Predicted GradeClass)')
+
 plt.show()
