@@ -37,37 +37,10 @@ categorical_columns = df.columns.difference(numerical_columns).difference(['Grad
 X = df.loc[:, df.columns != "GradeClass"]
 y = df['GradeClass']
 #----------------
-# Split scaled features into train/test so subsequent cells can use X_train / X_test
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
-
 # Instantiate classification models with default parameters
 models = {
     'Random Forest': RandomForestClassifier(),
 }
-#----------------
-model_names = []
-accuracies = []
-
-# Train and evaluate each model
-for name, clf in models.items():
-    clf.fit(X_train, y_train)
-    score = clf.score(X_test, y_test)
-    model_names.append(name)
-    accuracies.append(score)
-    print(f"{name} accuracy: {score:.2f}")
-
-# Create a DataFrame for model accuracies
-df_models = pd.DataFrame({'Model': model_names, 'Accuracy': accuracies})
-
-# Plot model accuracies using Seaborn
-plt.figure(figsize=(10, 6))
-sns.barplot(x='Model', y='Accuracy', data=df_models, palette='pastel')
-plt.title('Model Accuracies')
-plt.xlabel('Model')
-plt.ylabel('Accuracy')
-plt.ylim(0, 1)
-plt.xticks(rotation=45)
-plt.show()
 #----------------
 # Ensure train/test split is defined (uses X_scaled from earlier)
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
